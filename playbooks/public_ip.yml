@@ -1,0 +1,13 @@
+---
+- name: Get public IP address
+  hosts: all
+  become: no
+
+  tasks:
+  - name: Get public IP address using curl
+    command: curl ifconfig.me
+    register: output
+
+  - name: Print output
+    debug:
+      var: output.stdout_lines

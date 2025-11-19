@@ -1,0 +1,14 @@
+[web_servers]
+web1.example.com ansible_host=192.168.1.10 ansible_user=admin
+web2.example.com ansible_host=192.168.1.11 ansible_user=admin
+
+[database_servers]
+db1.example.com ansible_host=192.168.1.20 ansible_user=dbadmin
+db2.example.com ansible_host=192.168.1.21 ansible_user=dbadmin
+
+[load_balancers]
+lb1.example.com ansible_host=192.168.1.30 ansible_user=admin
+
+[all:vars]
+ansible_ssh_private_key_file = ~/.ssh/id_rsa
+ansible_python_interpreter = /usr/bin/python3

@@ -1,0 +1,19 @@
+
+# Ignore local configuration files
+*.local
+*.secret
+.env
+
+# Ignore temporary and log files
+*.log
+*.tmp
+*.pid
+
+# Ignore OS-generated files
+.DS_Store
+Thumbs.db
+
+# Ignore sensitive files
+secrets.json
+*.pem
+*.key

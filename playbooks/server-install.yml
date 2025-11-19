@@ -1,0 +1,37 @@
+---
+- name: Install Cockpit, WireGuard, and Resolvconf, and configure WireGuard
+  hosts: all
+  become: true
+
+  tasks:
+  - name: Install Cockpit
+    apt:
+      name: cockpit
+      state: present
+
+  - name: Enable and start Cockpit
+    service:
+      name: cockpit
+      state: started
+      enabled: yes
+
+  - name: Install WireGuard
+    apt:
+      name: wireguard
+      state: present
+
+  - name: Install Resolvconf
+    apt:
+      name: resolvconf
+      state: present
+
+  - name: Restart Resolvconf
+    service:
+      name: resolvconf
+      state: restarted
+
+  - name: Bring up WireGuard interface
+    command: sudo wg-quick up wg0
+
+  - name: Enable WireGuard service
+    command: sudo systemctl enable wg-quick@wg0
